@@ -1,0 +1,95 @@
+@layout('layouts.app')
+
+
+@section('content')
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $.ajaxSetup({ cache: true });
+     
+    $.getScript('//connect.facebook.net/en_US/sdk.js',
+                function()
+                {
+                    FB.init({
+                        appId: '#########',
+                        version: 'v9.0'
+                    });
+
+                    FB.Event.subscribe('auth.logout', function(response) {
+                            window.top.location = 'welcome page url';
+                    });
+
+                    checkLoginState();
+                    $('#loginbutton,#feedbutton').removeAttr('disabled');
+
+                });
+
+    
+});
+
+
+
+function checkLoginState(){
+                FB.getLoginStatus(function(response) {
+            updateStatusCallback(response);
+        });
+}
+
+
+
+function updateStatusCallback(response){
+   
+  // console.log(response.authResponse.accessToken)
+
+  
+   
+   FB.api(
+  '/me',
+  'GET',
+  {"fields":"id,name,friends"},
+  function(response) {
+      userId = response.id
+      console.log(userId)
+
+
+
+
+
+      $("#userDetails").html("<p>Welcome " + response.name + "</p>");
+
+  }
+);
+
+
+
+}
+</script>
+
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=#######&autoLogAppEvents=1" nonce="eIi5frbV"></script>
+
+
+
+
+
+<h1>Messenger</h1>
+
+
+
+<!--<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>-->
+
+<div id="userDetails"></div>
+
+<img scr="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10158155773817961&height=50&width=50&ext=1608037841&hash=AeSImJXbvSruFyP8jTo"/>
+
+<div class="fb-login-button" onlogin="checkLoginState();" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" data-width=""></div>
+
+
+@endsection

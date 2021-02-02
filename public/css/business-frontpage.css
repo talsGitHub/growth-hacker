@@ -1,0 +1,77 @@
+/*!
+ * Start Bootstrap - Busines Frontpage (https://startbootstrap.com/template-overviews/business-frontpage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+
+ #heading{
+  
+
+  /* The image used */
+    background-image: url("../images/main.jpg");
+
+    /* Full height */
+    height: 500px; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#headerText{
+	text-shadow: 2px 2px 4px #000000;
+  	font-weight: bold;
+}
+
+#headerSubText{
+	text-shadow: 2px 2px 4px #000000;
+  	font-weight: bold;
+  	font-size: 30px;
+  	color:white;
+}
+
+
+td {
+  height: 50px;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid black;
+
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid black;
+}
+
+table {
+  border: 1px solid black;
+}
+
+
+#contact_img {
+	background-image: url("../images/contact.jpg");
+   /* Center and scale the image nicely */
+      background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+
+.footer
+{
+    height: 150px;
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
